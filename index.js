@@ -6,7 +6,9 @@ const numOfDrumButtons = document.querySelectorAll(".drum").length;
 for (var i=0; i<numOfDrumButtons; i++) {
     document.querySelectorAll(".drum")[i].addEventListener('click', function() {
         // 'this' is the identity of button that is triggered by the event listener
-        this 
+        
+        // targets the button and will change the text color to white when clicked
+        this.style.color = "white";
     });
 }
 
