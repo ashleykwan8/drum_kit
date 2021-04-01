@@ -45,7 +45,7 @@ for (var i=0; i<numOfDrumButtons; i++) {
                 break;
     
             default:
-                console.log(buttonInnerHTML)
+                console.log(buttonInnerHTML) /*use case*/
                 break;
         }
     });
