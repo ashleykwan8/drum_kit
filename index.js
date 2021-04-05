@@ -3,7 +3,7 @@
 // Detecting Button Press
 const numOfDrumButtons = document.querySelectorAll(".drum").length;
 
-// use For Loop to go through all the buttons to handle the event listener 
+// use For Loop to go through all the buttons and add an event listener to each 
 for (var i=0; i<numOfDrumButtons; i++) {
     document.querySelectorAll(".drum")[i].addEventListener('click', function() {
         // 'this' is the identity of button that is triggered by the event listener
@@ -15,6 +15,8 @@ for (var i=0; i<numOfDrumButtons; i++) {
         // target the button
         var buttonInnerHTML = this.innerHTML;
         makeSound(buttonInnerHTML);
+        // adding animation to button
+        buttonAnimation(buttonInnerHTML);
 
         // switch (buttonInnerHTML) {
         //     case 'w':
@@ -57,6 +59,9 @@ for (var i=0; i<numOfDrumButtons; i++) {
 document.addEventListener('keydown', function(event) {
     /*we want the key property related to the key pressed*/
     makeSound(event.key);
+
+    // add animation to key that's pressed
+    buttonAnimation(event.key);
 })
 
 function makeSound(key){
@@ -95,6 +100,18 @@ function makeSound(key){
             console.log(key); /*use case*/
             break;
     }
+
+}
+
+function buttonAnimation (currentKey) {
+
+    let activeButton = document.querySelector("." + currentKey);
+    activeButton.classList.add("pressed");
+
+    // after pressed class is added, delay and remove "pressed" to get rid of the shadow effect
+    setTimeout(function () {
+        activeButton.classList.remove("pressed");
+    }, 100); 
 
 }
 
